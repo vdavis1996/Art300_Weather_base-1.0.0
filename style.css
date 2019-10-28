@@ -1,4 +1,4 @@
-.degree_symbol:not(:empty)::after {
+/* .degree_symbol:not(:empty)::after {
     content: "°"
 }
 
@@ -9,4 +9,169 @@
 #map {
 	width: 600px;
     height: 600px;
+} */
+body{
+    background-color:rgb(64,65,81);
+}
+
+.strip_box{
+    height:50px;
+    width:80vw;
+    margin-top:10px;
+    background-color:rgb(102,100,157);
+    }
+
+h1{
+    text-align:center;
+    margin:auto;
+    margin-top:10px;
+    font-size:45px;
+    font-family:"Century Gothic",serif;
+    font-style:bold;
+    color:rgb(205,210,214);
+}
+
+.radar_box{
+    height:700px;
+    width:40vw;
+    margin-right:px;
+    margin-top:90px;
+    background-color:rgb(205,210,214);
+}
+
+.current_temp_container{
+    height:750px;
+    width:50vw;
+    margin-top:-800px;
+    margin-left:830px;
+    background-color:rgb(36,34,52);
+}
+
+h2{
+    font-size:40px;
+    font-family:"Century Gothic",serif;
+    font-style:bold;
+    color:rgb(205,210,214);
+    text-align:center;
+    margin-right:-50px;
+    margin-left:0px;
+}
+
+.degree_circle{
+    height:15px;
+    width:1vw;
+    border:solid #bbb;
+    border-radius:55%;
+    margin-left:510px;
+    margin-top:30px;
+}
+
+h6{
+    font-size:100px;
+    font-family:"Century Gothic",serif;
+    font-style:bold;
+    text-align:center;
+    color:rgb(205,210,214);
+    margin-top:-40px;
+}
+
+.current_feel{
+    font-size:35px;
+    font-family:"Century Gothic",serif;
+    font-style:bold;
+    text-align:center;
+    color:rgb(205,210,214);
+    margin-top:-200px;
+}
+
+.date_time{
+    font-size:35px;
+    font-family:"Century Gothic",serif;
+    font-style:Bold;
+    text-align:center;
+    margin-top:-65px;
+    color:rgb(205,210,214);
+    border-bottom:10px solid rgb(102,100,157);
+}
+
+.precipitation{
+    font-size:25px;
+    font-family:"Century Gothic",serif;
+    font-style:bold;
+    color:rgb(102,100,157);
+    text-align:center;
+    margin-top:-50px;
+}
+
+.wind_dir{
+    font-size:25px;
+    font-family:"Century Gothic",serif;
+    font-style:bold;
+    color:rgb(102,100,157);
+    text-align:center;
+    margin-top:-10px;
+}
+
+.wind_sp{
+    font-size:25px;
+    font-family:"Century Gothic",serif;
+    font-style:bold;
+    color:rgb(102,100,157);
+    text-align:center;
+    margin-top:-10px;
+}
+
+.suns{
+    font-size:25px;
+    font-family:"Century Gothic",serif;
+    font-style:bold;
+    color:rgb(102,100,157);
+    text-align:center;
+    margin-top:-10px;
+}
+
+.info{
+    font-size:25px;
+    font-family:"Century Gothic",serif;
+    font-style:bold;
+    color:rgb(102,100,157);
+    text-align:center;
+    margin-top:-10px;
+}
+
+.forecast_box{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-column-gap:1em;
+    margin-top:100px;
+    width:50vw;
+}
+
+.day_slot{
+    background-color:rgb(36,34,52);
+}
+
+.weather_image{
+    width:3vw;
+    height:50px;
+    background-color:rgb(205,210,214);
+    margin:auto;
+}
+
+h4{
+    font-family:"Century Gothic",serif;
+    font-style:Bold;
+    font-size:30px;
+    color:rgb(22,76,198);
+    text-align:center;
+    border-bottom: 5px solid rgb(102,100,157);
+}
+
+h3{
+    font-family:"Century Gothic",Impact;
+    font-style:Bold;
+    font-size:25px;
+    color:rgb(22,76,198);
+    text-align:center;
+    margin-top:40px;
 }
