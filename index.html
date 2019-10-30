@@ -29,70 +29,69 @@
 
 
 
-        <input placeholder="Enter Your ZIP Code" name="name" id="zip" />
+        <input placeholder="Enter Your ZIP Code" v-on:input="zip_trigger"name="name" id="zip" />
         <p id="zip_display"></p>
 
 
-        <div class="results" id="app"></div>
+        <div class="results" id="app">
         <div class="strip_box">
             <h1>Alert: Winter Weather Advisory</h1>
         </div>
-        <div class="radar_box"></div>
+        <!-- <div class="radar_box" id="map"></div> -->
+        <div class="body_page">
+        <div class="test" id="map"></div>
             <div class="current_temp_container">
-                <h2>Manhattan,Kansas</h2>
+                <h2>{{location.name}}</h2>
                 <div class="degree_circle"></div>
-                <h6>19</h6>
+                <h6>{{current.temp.current}}</h6>
                 <h6 class="current_feel">Feels LIke:5
                 </h6>
-                <h6 class="date_time"> 12/19/18 - 10:50 AM</h6>
-            <div class="Line"></div>
-                <h5 class="precipitation">Precipitation: 3%</h5>
-                   <h5 class="wind_dir">Wind Direction: NW</h5>
-                   <h5 class="wind_sp">Wind Speed: 5mph</h5>
-                   <h5 class="suns">Sunrise - 7:45 AM / Sunset - 6:07 PM</h5>
-                   <h5 class="info">Desdcription: Partly Cloudy
-                    with a slight chance of snow;
-                    followed by a winter weather advisory
-                    starting tomorrow late Thursday evening.
+                <h6 class="date_time">{{time.hour_12}} : {{time.minute}} : {{time.seconds}} {{time.ampm}}</h6>
+                <h5 class="precipitation">Precipitation: {{forecast[0].precip}}</h5>
+                   <h5 class="wind_dir">{{hourly[0].windDirection}}</h5>
+                   <h5 class="wind_sp">{{current.wind.speed}}</h5>
+                   <h5 class="suns">{{current.sunrise}} / {{current.sunset}}</h5>
+                   <h5 class="info">{{current.description_long}}
                 </h5>
             </div>
             <div class="forecast_box">
                 <div class="day_slot">
+                    <h4>Today</h4>
+                    <h3>Hi: {{forecast[0].max_temp}}</h3>
+                    <h3>Lo: {{forecast[0].min_temp}}</h3>
+                    <div class="weather_image">{{current.description_icon}}</div>
+                    <h3>{{forecast[0].weather.description}}</h3>  
+                </div>
+                <div class="day_slot">
                     <h4>Tomorrow</h4>
-                    <h3>Hi:26</h3>
-                    <h3>Lo:11</h3>
+                    <h3>Hi: {{forecast[1].max_temp}}</h3>
+                    <h3>Lo: {{forecast[1].min_temp}}</h3>
                     <div class="weather_image"></div>
-                    <h3>Partly Cloudy</h3>  
+                    <h3>{{forecast[1].weather.description}}</h3>
+                </div>
+                <div class="day_slot">
+                    <h4>Wednesday</h4>
+                    <h3>Hi: {{forecast[2].max_temp}}</h3>
+                    <h3>Lo: {{forecast[2].min_temp}}</h3>
+                    <div class="weather_image"></div>
+                    <h3> {{forecast[2].weather.description}}</h3>
+                </div>
+                <div class="day_slot">
+                    <h4>Thursday</h4>
+                    <h3> Hi: {{forecast[3].max_temp}}</h3>
+                    <h3>Lo: {{forecast[3].min_temp}}</h3>
+                    <div class="weather_image"></div>
+                    <h3>{{forecast[3].weather.description}}</h3>
                 </div>
                 <div class="day_slot">
                     <h4>Friday</h4>
-                    <h3>Hi:18</h3>
-                    <h3>Lo:-2</h3>
+                    <h3>Hi: {{forecast[4].max_temp}}</h3>
+                    <h3>Lo: {{forecast[4].min_temp}}</h3>
                     <div class="weather_image"></div>
-                    <h3>Snow: 90%</h3>
-                </div>
-                <div class="day_slot">
-                    <h4>Saturday</h4>
-                    <h3>Hi:13</h3>
-                    <h3>Lo:0</h3>
-                    <div class="weather_image"></div>
-                    <h3>Snow: 100%</h3>
-                </div>
-                <div class="day_slot">
-                    <h4>Sunday</h4>
-                    <h3> Hi:20</h3>
-                    <h3>Lo:-3</h3>
-                    <div class="weather_image"></div>
-                    <h3>Partly Cloudy</h3>
-                </div>
-                <div class="day_slot">
-                    <h4>Monday</h4>
-                    <h3>Hi:15</h3>
-                    <h3>Lo:4</h3>
-                    <div class="weather_image"></div>
-                    <h3>Snow:85%</h3>
+                    <h3>{{forecast[4].weather.description}}</h3>
                 </div>
             </div>
+        </div>
 
             <!-- <h1>TIME</h1>
             <p>{{time.day}}</p>
@@ -170,6 +169,6 @@
 
 
 
-        <script src="/js/script.js" type="module"></script>
+        <script src="/js/script.js"></script>
     </body>
 </html>
