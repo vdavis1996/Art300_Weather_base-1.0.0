@@ -35,7 +35,7 @@
 
         <div class="results" id="app">
         <div class="strip_box">
-            <h1>Alert: Winter Weather Advisory</h1>
+            <h1>Art300 Weather Site</h1>
         </div>
         <!-- <div class="radar_box" id="map"></div> -->
         <div class="body_page">
@@ -44,50 +44,65 @@
                 <h2>{{location.name}}</h2>
                 <div class="degree_circle"></div>
                 <h6>{{current.temp.current}}</h6>
-                <h6 class="current_feel">Feels LIke:5
+                <h6 class="current_feel">Feels Like: {{current.temp.feelslike}}
                 </h6>
-                <h6 class="date_time">{{time.hour_12}} : {{time.minute}} : {{time.seconds}} {{time.ampm}}</h6>
-                <h5 class="precipitation">Precipitation: {{forecast[0].precip}}</h5>
-                   <h5 class="wind_dir">{{hourly[0].windDirection}}</h5>
-                   <h5 class="wind_sp">{{current.wind.speed}}</h5>
-                   <h5 class="suns">{{current.sunrise}} / {{current.sunset}}</h5>
-                   <h5 class="info">{{current.description_long}}
+                <h6 class="date_time">{{time.day}}, {{time.date}} / {{time.hour_12}} : {{time.minute}} : {{time.seconds}} {{time.ampm}}</h6>
+                <h5 class="precipitation">Precipitation: {{forecast[0].precip}} / {{forecast[0].pop}}%</h5>
+                   <h5 class="wind_dir">Wind Direction: {{hourly[0].windDirection}}</h5>
+                   <h5 class="wind_sp">Wind Speed: {{current.wind.speed}}</h5>
+                   <h5 class="suns">Sunrise: {{current.sunrise}} / Sunset: {{current.sunset}}</h5>
+                   <h5 class="info">Description: {{current.description_long}}
                 </h5>
             </div>
             <div class="forecast_box">
                 <div class="day_slot">
-                    <h4>Today</h4>
+                    <h4>{{forecast[0].weekday}}</h4>
                     <h3>Hi: {{forecast[0].max_temp}}</h3>
                     <h3>Lo: {{forecast[0].min_temp}}</h3>
-                    <div class="weather_image">{{current.description_icon}}</div>
+                    <div class="icon">
+                            <img v-bind:src="'/img/' + forecast[0].description_icon + '.png'"
+                            v-bind:alt="forecast[0].weather.description">
+                        </div>
                     <h3>{{forecast[0].weather.description}}</h3>  
                 </div>
                 <div class="day_slot">
-                    <h4>Tomorrow</h4>
+                    <h4>{{forecast[1].weekday}}</h4>
                     <h3>Hi: {{forecast[1].max_temp}}</h3>
                     <h3>Lo: {{forecast[1].min_temp}}</h3>
-                    <div class="weather_image"></div>
+                    <div class="icon">
+                            <img v-bind:src="'/img/' + forecast[1].description_icon + '.png'"
+                            v-bind:alt="forecast[1].weather.description">
+                        </div>
                     <h3>{{forecast[1].weather.description}}</h3>
                 </div>
                 <div class="day_slot">
-                    <h4>Wednesday</h4>
+                    <h4>{{forecast[2].weekday}}</h4>
                     <h3>Hi: {{forecast[2].max_temp}}</h3>
                     <h3>Lo: {{forecast[2].min_temp}}</h3>
-                    <div class="weather_image"></div>
+                    <div class="icon">
+                            <img v-bind:src="'/img/' + forecast[2].description_icon + '.png'"
+                            v-bind:alt="forecast[2].weather.description">
+                        </div>
                     <h3> {{forecast[2].weather.description}}</h3>
                 </div>
                 <div class="day_slot">
-                    <h4>Thursday</h4>
+                    <h4>{{forecast[3].weekday}}</h4>
                     <h3> Hi: {{forecast[3].max_temp}}</h3>
                     <h3>Lo: {{forecast[3].min_temp}}</h3>
-                    <div class="weather_image"></div>
+                    <div class="icon">
+                            <img v-bind:src="'/img/' + forecast[3].description_icon + '.png'"
+                            v-bind:alt="forecast[3].weather.description">
+                        </div>
                     <h3>{{forecast[3].weather.description}}</h3>
                 </div>
                 <div class="day_slot">
-                    <h4>Friday</h4>
+                    <h4>{{forecast[4].weekday}}</h4>
                     <h3>Hi: {{forecast[4].max_temp}}</h3>
                     <h3>Lo: {{forecast[4].min_temp}}</h3>
-                    <div class="weather_image"></div>
+                    <div class="icon">
+                            <img v-bind:src="'/img/' + forecast[4].description_icon + '.png'"
+                            v-bind:alt="forecast[4].weather.description">
+                        </div>
                     <h3>{{forecast[4].weather.description}}</h3>
                 </div>
             </div>
@@ -164,10 +179,34 @@
             <p>{{forecast[0].pres}} mb</p> -->
 
         </div>
-        <div id="map"></div>
+        <div v-bind:class="'icon-' + forecast[0].description_icon"></div>
+        
+        <div class="icon">
+            <img v-bind:src="'/img/' + forecast[0].description_icon + 'png'"
+            v-bind:alt="forecast[0].weather.description">
+        </div>
+        
+        
+            <div id="map"></div>
 
-
-
+        <div class="icon-01d"></div>
+        <div class="icon-02d"></div>
+        <div class="icon-03d"></div>
+        <div class="icon-04d"></div>
+        <div class="icon-09d"></div>
+        <div class="icon-10d"></div>
+        <div class="icon-11d"></div>
+        <div class="icon-13d"></div>
+        <div class="icon-50d"></div>
+        <div class="icon-01n"></div>
+        <div class="icon-02n"></div>
+        <div class="icon-03n"></div>
+        <div class="icon-04n"></div>
+        <div class="icon-09n"></div>
+        <div class="icon-10n"></div>
+        <div class="icon-11n"></div>
+        <div class="icon-13n"></div>
+        <div class="icon-50n"></div>
 
         <script src="/js/script.js"></script>
     </body>
